@@ -1,0 +1,3 @@
+BitcoinExchangeRate.org API examples
+
+These scripts show how to get the current USD price of Bitcoin in Ruby, PHP, Bash shell script, and Objective C from bitcoinexchangerate.org

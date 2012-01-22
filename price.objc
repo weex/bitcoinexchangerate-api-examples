@@ -1,0 +1,14 @@
+NSString *request = [NSString stringWithFormat:@"http://www.bitcoinexchangerate.org/price"];
+
+NSString *escapedUrl = [request   
+                        stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+NSURL *URL = [NSURL URLWithString:escapedUrl];
+
+NSError *error;
+NSString *HTML = [NSString stringWithContentsOfURL:URL encoding:NSASCIIStringEncoding error:&error];
+
+NSString *bitcoinprice = [[[[HTML componentsSeparatedByString:@"<title>"]
+objectAtIndex:1] componentsSeparatedByString:@"</title>"] objectAtIndex:0];
+double bitcoinpriceInDouble = [bitcoinprice doubleValue];
+NSLog(@"%@", bitcoinprice);
