@@ -6,12 +6,12 @@ function get_title($html_page)
   $split_page = preg_split("%</?title[^>]*>%",$html_page);
   return $split_page[1];
 }
-function get_bit_coin_price()
+function get_bitcoin_price()
 {
   $bitcoin_price_address = "http://www.bitcoinexchangerate.org/price";
   $html = fread(fopen($bitcoin_price_address, "r"), 100);
   return get_title($html);
 }
-$price = trim(get_bit_coin_price());
+$price = trim(get_bitcoin_price());
 echo $price;
 ?>
